@@ -1,0 +1,63 @@
+#div1{
+    background-color: green;
+    opacity: 0.5;
+}
+.heading{
+    text-align: center;
+}
+#head1 {
+    color: brown;
+}
+#head2{
+    font-weight: 100;
+    color: aqua;
+}
+#head3{
+    color: brown;
+    font-size: x-large;
+}
+#para1{
+    text-align: justify;
+    font-family: 'Segoe UI';
+    background-image: url(../Images/abstract-gradient-green-blue-soft-colorful-background.webp);
+    /* background-repeat: repeat; */
+    color: white;
+}
+#para2{
+    text-align: center;
+    font-style: italic;
+    text-transform: uppercase;
+}
+#para3{
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+}
+a{
+    color: rgb(216, 118, 37);
+    text-decoration: none;
+}
+p.solid{
+    border: solid;
+    border-radius: 5px;
+    border-color: red;
+    border-width: 3px 10px;
+}
+p.dotted{
+    border: dotted;
+    border-color: green;
+    border-width: 5px;
+}
+p.dashed{
+    border: dashed;
+    border-color: blue;
+border-width: thin;
+}
+p.double{
+    border: double;
+    border-color: darkviolet;
+    border-width: thick;
+}
+p.groove{
+    border: groove;
+    border-color: orange;
+}

@@ -1,0 +1,46 @@
+/* .container {
+  display: flex;
+  height: 200px;
+  background: lightgray;
+  align-content: center;
+  align-items: center; Align all items vertically at center
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  background: royalblue;
+  color: white;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+#item3{
+    /* grid-column: 1/ 3; */
+
+    grid-area: 2/1/3/3;
+}
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px 10px;
+    padding: 10px;
+    background: dodgerblue;
+    /* "grid" takes max width of div while "inline-grid" takes content max width*/
+    /* column-gap: 10px; */
+    /* grid-auto-flow:  row dense; */
+    /* grid-auto-columns: min-content; */
+}
+
+.box {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    padding: 20px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+

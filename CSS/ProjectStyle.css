@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+.container{
+    /* width: 1024px; */
+    padding: 0 15px;
+}
+.navbar{
+    height: 60px;
+    background-color: black;
+    display: flex;
+    
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.nav-section{
+    display: inline-flex;
+    flex-grow: 1;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+.nav-search{
+    display: flex;
+}
+a{
+    color: white;
+    text-decoration: none;
+    
+    margin-bottom: 5px;
+}
+.nflogo{
+    margin-right: 30px;
+}
+.nav-menu{
+    width: 73.5%;
+}
+.lmenus{
+    margin-right: 15px;
+}
+.rmenus{
+    margin-right: 20px;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    right: 5px;
+    font-size: 15px;
+    background-color: rgb(18, 17, 17);
+    min-width: 200px;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.dropdown-content a{
+    color: whitesmoke;    
+    padding: 8px 10px;
+    display: block;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+/* .mainimage{
+    background-image: url(../Images/Night\ Mountain.avif);
+    background-image: url(../Images/Night\ Mountain.avif);
+    object-fit: cover; 
+} */
+.btns{
+    position: relative;
+    display: flex;
+}
+.lbtns{
+    align-items: center;
+}
+

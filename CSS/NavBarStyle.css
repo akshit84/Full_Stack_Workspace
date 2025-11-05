@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    position: sticky;
+    top: 0;
+}
+#navbar{
+    height: 60px;
+    background-color: black;
+    /* display: inline-block; */
+}
+div.navlink{
+    display: inline;
+    /* margin-right: 200px; */
+    
+}
+button{
+    background-color: #f08804;
+}
+#logo{
+    color: #f08804;
+    font-size: 25px;
+}
+a{
+    margin-right: 200px;
+    text-decoration: none;
+    color: white;
+}
+
+.contentBox{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+}
+#con1{
+    background-color: rgb(255, 99, 71, 0.5);
+}
+#con2{
+    background-color: rgb(30, 144, 255, 0.5);
+}
+#con3{
+    background-color: rgb(46, 139, 87, 0.5);
+}
+#con4{
+    background-color:rgba(255, 165, 0, 0.5) ;
+}
+#con5{
+    background-color: rgba(106, 90, 205, 0.5);
+}
+#con6{
+    background-color: rgba(238, 130, 238, 0.5);
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: #fff;
+}
+
+.example {
+    margin: 50px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+/* 🔹 Static */
+.static .box {
+    position: static;
+    background-color: lightgray;
+    padding: 15px;
+}
+
+/* 🔹 Relative */
+.relative .box {
+    position: relative;
+    top: 20px;
+    left: 30px;
+    background: lightblue;
+    padding: 15px;
+}
+
+/* 🔹 Absolute */
+.absolute .parent{
+    position: relative;
+    height: 150px;
+    background: #eee;
+    margin-top: 20px;
+}
+
+
+.absolute .child{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    padding: 15px;
+    background: orange;
+}
+
+
+/* 🔹 Sticky */
+.sticky-box {
+  position: sticky;
+  top: 0;
+  background: green;
+  color: white;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* 🔹 Fixed */
+.fixed {
+    position: fixed;
+    color: white;
+    bottom: 20px;
+    right: 20px;
+    background: crimson;
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* z-index: 1; */
+
+}
+/* .fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: crimson;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+} */ 
+
+
+
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    /* position: sticky;
+    bottom: 0; */
+    width: 100%;
+}
