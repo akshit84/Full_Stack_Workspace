@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+.container {
+    padding: 0 15px;
+}
+
+.navbar {
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-section {
+    display: inline-flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.nav-search {
+    display: flex;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.nflogo {
+    margin-right: 30px;
+}
+
+.nav-menu {
+    width: 73.5%;
+}
+
+.lmenus {
+    margin-right: 15px;
+}
+
+.rmenus {
+    margin-right: 20px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 5px;
+    font-size: 15px;
+    background-color: rgb(18, 17, 17);
+    min-width: 200px;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.dropdown-content a {
+    color: whitesmoke;
+    padding: 8px 10px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.btns {
+    position: relative;
+    display: flex;
+    bottom: 230px;
+}
+
+.lbtns {
+    position: absolute;
+}
+
+.lbtns a {
+    padding: 10px 22px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.lbtns a:first-child {
+    background-color: white;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.lbtns a:last-child {
+    background-color: rgba(221, 221, 214, 0.5);
+    border-radius: 4px;
+}
+
+.lbtns a svg {
+    vertical-align: middle;
+}
+
+.rbtns {
+    position: absolute;
+    right: 50px;
+}
+
+.rbtns a {
+    margin-right: 20px;
+}
+
+.rbtns a svg {
+    vertical-align: middle;
+}
+
+span {
+    padding: 3px 12px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-left: 3px solid white;
+    background-color: rgba(83, 83, 79, 0.5);
+}
+
+.rbtns h2 {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: 450;
+    top: 190px;
+    right: 1265px;
+    width: 200px;
+}
+
+.lower{
+    background-color: black;
+    height: 41.8vh;
+}
+
+.grid1{
+    display: flex;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    width: 100%;
+}
+.grid1 img{
+    width: 100%;
+    height: 120px;           
+    object-fit: cover;       
+    border-radius: 4px;
+    margin-top: 10px;
+
+}
+.grid2{
+    display: flex;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    width: 100%;
+}
+.lower-second-grid h2{
+    color: white;
+    font-size: 24px;
+    font-weight: 450;
+    margin-top: 8px;
+}
+.grid2 img{
+    width: 100%;
+    height: 120px;           
+    object-fit: cover;       
+    border-radius: 4px;
+    margin-top: 10px;
+}
