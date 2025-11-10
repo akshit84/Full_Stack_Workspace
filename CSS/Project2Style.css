@@ -1,0 +1,455 @@
+@font-face {
+    font-family: "GothamNarrow";
+    src: url("../Fonts/1710-font.otf") format("truetype");
+    font-weight: normal;
+    font-size: normal;
+}
+
+/* @font-face {
+    font-family: "GothamNarrow";
+    src: url("../Fonts/RegencieLightAlt.ttf") format("truetype");
+    font-weight: normal;
+    font-size: normal;
+} */
+
+@font-face {
+    font-family: "Arboria";
+    src: url("../Fonts/FontsFree-Net-Arboria-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Arboria";
+    src: url("../Fonts/Arboria-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #585858;
+    --secondary-text-color: #;
+    --accent-color: #f65c00;
+    --link-color: #007b8f;
+    --padding-inline-section: 20px;
+}
+
+/* Utility Classes */
+
+/* body{
+    font-family: "GothamNarrowSSm-Book,serif";
+} */
+h1 {
+    font-family: "Arboria";
+    font-weight: bold;
+
+}
+
+a {
+    text-decoration: none;
+    font-weight: lighter;
+
+}
+
+h2 {
+    font-family: "Arboria";
+}
+
+p {
+    font-family: "GothamNarrow", sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    /* margin-inline: auto; */
+    margin: auto;
+    /* margin-inline: auto; */
+
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+/* Header Section */
+.header-relative {
+    position: relative;
+}
+
+.logo-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-inline: 20px;
+    padding-bottom: 20px;
+}
+
+.searchbox {
+    display: flex;
+    height: 50px;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    align-items: center;
+
+}
+
+.searchbox svg {
+    margin-left: 8px;
+}
+
+.search-input {
+    width: 70%;
+}
+
+.searchbox input {
+    border: none;
+    outline: none;
+    color: #aaaaaa;
+    width: 180px;
+    font-size: 17px;
+    margin-left: 15px;
+}
+
+.searchbox .arrow {
+    background-color: #eaeaea;
+    height: 48px;
+    width: 48;
+    display: flex;
+    margin-right: 0;
+    flex-basis: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.desktop-nav {
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 15px 0;
+    /* height: 70px; */
+
+}
+
+.ul-left a {
+    color: var(--primary-text-color);
+    font-family: "Arboria";
+    font-size: large;
+    font-weight: 900;
+}
+
+.ul-left li {
+    padding-right: 50px;
+}
+
+.ul-left li img {
+    margin-left: 2px;
+}
+
+.ul-left a:hover {
+    color: var(--accent-color);
+}
+
+/* .ul-right{
+    margin-top: 10px;
+    margin-bottom: 35px;
+} */
+.ul-right a {
+    color: var(--primary-text-color);
+    font-family: "Arboria";
+    font-size: large;
+    font-weight: 900;
+}
+
+.ul-right li img {
+    margin-left: 2px;
+}
+
+.ul-right a:hover {
+    color: #f65c00;
+}
+
+.right-pos {
+    margin-right: 67px;
+    /* margin-bottom: 15px; */
+}
+
+/* .reg-sign{
+    /* position: absolute; */
+/* font-family: "Arboria-Medium";
+    margin-bottom: 9px;
+    color: #585858;
+}
+.reg-sign:hover{
+    color: #007b8f;
+    text-decoration: underline;
+} */
+
+.sign-reg {
+    position: absolute;
+    right: 125px;
+    bottom: 50px;
+    font-family: "Arboria-Medium";
+    /* color: #585858; */
+}
+
+.sign-reg a {
+    color: #585858;
+}
+
+.sign-reg a:hover {
+    color: #007b8f;
+    text-decoration: underline;
+}
+
+/* Image Banner  */
+.main-banner {
+    width: 100%;
+    height: 360px;
+    background-image: url(../Images/assets/asset\ 33.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.main-content {
+    flex-direction: column;
+    width: auto;
+    height: 360px;
+    align-items: start;
+    justify-content: center;
+}
+
+.main-heading h1 {
+    color: #585858;
+    width: 600px;
+    font-size: 45px;
+}
+
+.main-heading-text p {
+    width: 665px;
+    color: #585858;
+    font-weight: 300;
+    padding-top: 5px;
+    /* letter-spacing: 1px; */
+}
+
+/* Sticky Navbar */
+
+.sticky-nav {
+    width: 100%;
+    background-color: #f65c00;
+    position: sticky;
+    top: 0;
+}
+
+.nav-component {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    /* padding: 20px; */
+    justify-content: space-evenly;
+}
+
+/* .nav-component div{
+    align-items: center;
+    width: 100%;
+} */
+.nav-component li button {
+    font-family: "Arboria";
+    font-weight: bold;
+    color: white;
+    background: none;
+    border: none;
+    /* width: ; */
+    /* padding: 20px; */
+    font-size: 20px;
+}
+
+.nav-component li:hover {
+    background-color: #ce4635;
+    color: white;
+    padding: 17px 0;
+}
+
+/* Product Section */
+
+.product-header {
+    padding-top: 25px;
+}
+
+.product-header h2 {
+    color: #585858;
+    font-size: 45px;
+}
+
+.product-header p {
+    color: #585858;
+    font-weight: 300;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.product-header button {
+    font-family: "Arboria";
+    font-weight: 900;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #f65c00;
+    border: none;
+    width: 300px;
+    color: white;
+    border-radius: 3px;
+
+}
+
+/* Product Details */
+
+.product-details h2 {
+    font-family: "Arboria";
+    font-weight: 900;
+    color: #585858;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.product-details p {
+    /* font-family: "Arboria"; */
+    font-weight: 300;
+    color: #585858;
+    padding-bottom: 10px;
+}
+
+.product-details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    padding-top: 10px;
+}
+
+.gridbox {
+    border: 1.5px solid #ddd;
+    border-top: 5px solid #f65c00;
+    /* position: relative; */
+    padding: 15px;
+}
+
+.gridbox h2 {
+    color: black;
+    font-size: 22px;
+}
+
+.gridbox p {
+    color: #333333;
+    font-size: 15px;
+    line-height: 23px;
+}
+
+/* Online CE Course */
+
+.course-heading {
+    color: #585858;
+    margin-top: 20px;
+    padding-top: 40px;
+    justify-content: space-between;
+}
+
+.course-heading h2 {
+    font-size: 45px;
+}
+
+.course-heading div {
+    align-items: center;
+}
+
+.course-heading div a {
+    font-family: "Arboria";
+    font-weight: bold;
+    font-size: 17px;
+    color: #007b8f;
+}
+
+.course-heading div a:hover {
+    text-decoration: underline;
+}
+
+.course-info {
+    padding-top: 10px;
+}
+
+.course-info p {
+    font-weight: 300;
+    color: #585858;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-auto-rows: auto; */
+    padding-top: 15px;
+    column-gap: 30px;
+
+}
+
+.course-grid-box {
+    background-color: #F6F6F4;
+    height: fit-content;
+    width: auto;
+}
+
+.course-box1 h2 {
+    padding: 20px;
+    color: #585858;
+    font-size: 15px;
+    word-spacing: 3px;
+    line-height: 20px;
+    width: 335px;
+}
+
+.course-box1 p {
+    padding-inline: 20px;
+    color: #585858;
+    line-height: 20px;
+
+}
+
+.course-box1-link {
+    /* display: block; */
+    padding: 20px;
+    /* border-top: 1px solid #f65c00; */
+}
+
+.course-box1-link div {
+    display: inline-flex;
+    padding-top: 10px;
+    border-top: 1px solid #f65c00;
+    justify-content: center;
+}
+
+.course-box1-link a {
+    color: #007b8f;
+    margin-right: 5px;
+
+}
+
+/* Practice Tools  */
+
+.practice-tools {
+    margin-top: 20px;
+    padding-top: 40px
+}
+.practice-tools-banner{
+    justify-content: space-between;
+}
