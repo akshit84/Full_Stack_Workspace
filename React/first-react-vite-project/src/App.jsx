@@ -1,5 +1,6 @@
 
-import Test from './components/Test';
+import './App.css'
+import UseState from './components/UseState';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <>
-      <Test />
+      <UseState />
     </>
   )
 }
