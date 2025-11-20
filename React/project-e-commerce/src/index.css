@@ -1,0 +1,53 @@
+/*  */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
+
+*{
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1280px;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.navbar-heading{
+  font-size: xx-large;
+}
+.navbar-left{
+  display: flex;
+}
+.navbar-left div{
+  padding: 5px;
+  margin-inline: 5px;
+}
+.navbar-right{
+  display: flex;
+}
+.navbar-right div{
+  padding: 5px;
+  margin-inline: 5px;
+}
+.dropdown{
+  position: relative;
+}
+.dropdown-content{
+  position: absolute;
+  right: 100px;
+}
+
+body {
+  background: #f0f0f9;
+  font-size: 18px;
+  max-width: 1280px;
+}
+
+.dropdown{
+  position: relative;
+  margin-top: 10px;
+}
+
+
+
