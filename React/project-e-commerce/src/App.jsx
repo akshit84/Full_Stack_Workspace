@@ -37,14 +37,14 @@ function App() {
         </div>
       </nav>
       <div className='dropdown'>
-        <select value={selectCategory} onChange={(e) => setselectCategory(e.target.value)} style={{ padding: "8px 12px", borderRadius: "6px", fontSize: "16px", cursor: "pointer" }} className='dropdown-content' name="" id="">
+        <select value={selectCategory} onChange={(e) => setselectCategory(e.target.value)} className='dropdown-content px-3 py-2 rounded-md text-sm cursor-pointer' name="" id="">
           <option value="all">All</option>
           <option value="electronics">Electronics</option>
           <option value="vehicle">Vehicle</option>
         </select>
       </div>
-      <div style={{ marginTop: '50px', height: 'screen', padding: '10px' }}>
-        <div className='w-auto h-auto ' >
+      <div className='mt-12 p-2'>
+        <div className='w-fit h-fit ' >
           <div className='flex items-center justify-center' style={{ marginBottom: '20px' }}>
             <h2 className="text-3xl font-semibold text-rose-500">Most Popular</h2>
           </div>
