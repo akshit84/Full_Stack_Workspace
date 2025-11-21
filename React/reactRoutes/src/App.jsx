@@ -1,20 +1,24 @@
-
 import { Link, Route, Routes } from 'react-router'
 import './App.css'
-import Header from './components/Header/Header'
-import SideBar from './components/Side Bar/SideBar'
-import MainContent from './components/Main Content/MainContent'
+import SignUpAndLogin from './components/SignUpAndLogin/SignUpAndLogin'
+import DashBoard from './components/Main Content/DashBoard'
+
+
+
 
 function App() {
-
-
   return (
     <>
       <div className='relative'>
-        
-        <Header />
+
+        <Routes>
+          <Route path='/' element={<SignUpAndLogin />} />
+          <Route path='dashboard/*' element={<DashBoard />} />
+        </Routes>
+        {/* <SignUpAndLogin /> */}
+        {/* <Header />
         <SideBar />
-        <MainContent />
+        <MainContent /> */}
       </div>
 
     </>
