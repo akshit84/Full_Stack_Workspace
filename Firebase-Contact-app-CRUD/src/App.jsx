@@ -4,13 +4,21 @@ import { IoSearch } from "react-icons/io5";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./config/firebase";
-import { CgProfile } from "react-icons/cg";
-import { FaUserEdit } from "react-icons/fa";
-import { IoMdTrash } from "react-icons/io";
 import { ContactCard } from "./components/ContactCard";
+import Modal from "./components/Modal";
+import AddAndUpdateContact from "./components/AddAndUpdateContact";
 
 const App = () => {
   const [contacts, setcontacts] = useState([]);
+
+  const [isOpen, setOpen] = useState(false);
+
+  const onOpen = () => {
+    setOpen(true);
+  }
+  const onClose = () =>{
+    setOpen(false)
+  }
 
   useEffect(() => {
     const getContacts = async () => {
@@ -44,7 +52,7 @@ const App = () => {
             />
           </div>
           <div>
-            <AiFillPlusCircle className="text-5xl cursor-pointer text-white" />
+            <AiFillPlusCircle onClick={onOpen} className="text-5xl cursor-pointer text-white" />
           </div>
         </div>
         <div className="mt-4 gap-3 flex flex-col">
@@ -53,6 +61,7 @@ const App = () => {
           ))}
         </div>
       </div>
+      <AddAndUpdateContact onClose={onClose} isOpen={isOpen}/>
     </>
   );
 };
