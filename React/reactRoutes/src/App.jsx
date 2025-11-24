@@ -3,26 +3,25 @@ import './App.css'
 import SignUpAndLogin from './components/SignUpAndLogin/SignUpAndLogin'
 import DashBoard from './components/Main Content/DashBoard'
 
-
-
-
 function App() {
+
   return (
     <>
-      <div className='relative'>
+      
+        <div className='relative'>
 
-        <Routes>
-          <Route path='/' element={<SignUpAndLogin />} />
-          <Route path='dashboard/*' element={<DashBoard />} />
-        </Routes>
-        {/* <SignUpAndLogin /> */}
-        {/* <Header />
+          <Routes>
+            <Route path='/' element={<SignUpAndLogin />} />
+            <Route path='dashboard/*' element={<DashBoard />} />
+          </Routes>
+          {/* <SignUpAndLogin /> */}
+          {/* <Header />
         <SideBar />
         <MainContent /> */}
-      </div>
-
+        </div>
     </>
   )
 }
 
 export default App
+

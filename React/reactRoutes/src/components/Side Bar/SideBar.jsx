@@ -15,7 +15,7 @@ function SideBar() {
   return (
     <>
 
-      <div className='sticky left-0 bg-amber-200 w-60 min-h-screen p-5'>
+      <div className='sticky left-0 bg-amber-200 w-60 h-screen p-4'>
         <p className='font-medium text-xl text-slate-800 mb-3'>Categories</p>
         <ul className='text-lg'>
           {category.map((item) => (
