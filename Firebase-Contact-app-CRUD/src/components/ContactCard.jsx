@@ -4,11 +4,17 @@ import { CgProfile } from "react-icons/cg";
 import { FaUserEdit } from "react-icons/fa";
 import { IoMdTrash } from "react-icons/io";
 import { db } from "../config/firebase";
+import AddAndUpdateContact from "./AddAndUpdateContact";
+import useDisclouse from "../hooks/useDisclouse";
+import { toast } from "react-toastify";
 
 export const ContactCard = ({ contact }) => {
+  const { isOpen, onClose, onOpen } = useDisclouse();
+
   const deleteContact = async (id) => {
     try {
       await deleteDoc(doc(db, "contacts", id));
+      toast.success("Contact Deleted Successufully.");
     } catch (error) {
       console.log(error);
     }
@@ -27,13 +33,19 @@ export const ContactCard = ({ contact }) => {
           </div>
         </div>
         <div className="flex text-3xl">
-          <FaUserEdit className="" />
+          <FaUserEdit className="cursor-pointer" onClick={onOpen} />
           <IoMdTrash
-            className=" text-orange"
+            className=" text-orange cursor-pointer"
             onClick={() => deleteContact(contact.id)}
           />
         </div>
       </div>
+      <AddAndUpdateContact
+        contact={contact}
+        isUpdate
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </>
   );
 };
