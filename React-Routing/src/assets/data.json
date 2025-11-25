@@ -1,0 +1,39 @@
+{
+    "jobs": [
+       {
+    "id": 1,
+    "title": "Frontend Developer",
+    "salary": "₹4,50,000 - ₹6,00,000",
+    "location": "Bengaluru, India",
+    "description": "This role involves building responsive, high-performance user interfaces using React, Tailwind CSS, and modern JavaScript. You’ll collaborate closely with designers to convert UI/UX wireframes into functional features. Strong attention to detail and familiarity with component-based architecture are essential. Experience with version control and API integration is preferred."
+  },
+  {
+    "id": 2,
+    "title": "Backend Developer",
+    "salary": "₹5,00,000 - ₹7,50,000",
+    "location": "Hyderabad, India",
+    "description": "As a Backend Developer, you will design, develop, and maintain scalable server-side applications using Node.js and PostgreSQL. The role requires a strong understanding of API design, authentication, and database optimization. You will work with cross-functional teams to ensure seamless integration of frontend and backend systems. Knowledge of cloud deployment is an added advantage."
+  },
+  {
+    "id": 3,
+    "title": "Full Stack Developer",
+    "salary": "₹6,00,000 - ₹9,00,000",
+    "location": "Pune, India",
+    "description": "This position requires hands-on experience in both frontend and backend development. You’ll build end-to-end features using React, Node.js, and database technologies. Candidates should be comfortable writing clean, reusable code and debugging complex issues. The role includes participation in code reviews, planning, and Agile development processes."
+  },
+  {
+    "id": 4,
+    "title": "UI/UX Designer",
+    "salary": "₹3,50,000 - ₹5,50,000",
+    "location": "Mumbai, India",
+    "description": "The UI/UX Designer will create intuitive and visually appealing user experiences for web and mobile applications. Responsibilities include creating wireframes, prototypes, and design systems. You will work closely with developers to ensure design accuracy during implementation. Knowledge of Figma, Adobe XD, and design best practices is mandatory."
+  },
+  {
+    "id": 5,
+    "title": "React Developer",
+    "salary": "₹4,80,000 - ₹7,00,000",
+    "location": "Ahmedabad, India",
+    "description": "This role involves managing CI/CD pipelines, deployment workflows, and application monitoring systems. You’ll work with tools like Docker, Kubernetes, GitHub Actions, and cloud platforms to maintain smooth production operations. Strong problem-solving skills and an understanding of system reliability are essential. Experience with automation and scripting will be a strong plus."
+  } 
+    ]
+}
