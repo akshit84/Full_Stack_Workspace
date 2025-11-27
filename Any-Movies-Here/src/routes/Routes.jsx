@@ -4,7 +4,7 @@ import RootLayout from "../Layout/RootLayout";
 import Home from "../Pages/Home";
 import IMDB from "../Pages/IMDB";
 import NotFound from "../components/NotFound";
-import Favorite from "../Pages/Favorite";
+import Favorite from "../Pages/Favorite/Favorite";
 import MovieDetails from "../components/MovieDetails";
 
 const Routes = createRoutesFromElements(
