@@ -6,7 +6,7 @@ const RootLayout = () => {
     <>
       <div className="min-h-screen bg-slate-300/20">
         <Navbar />
-        <div className="pt-20">
+        <div className="pt-16 md:pt-20">
           <Outlet />
         </div>
       </div>

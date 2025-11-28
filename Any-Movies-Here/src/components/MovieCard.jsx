@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router";
 import { FiClock, FiEye } from "react-icons/fi";
 import { MdOutlineFavorite } from "react-icons/md";
-import { FavoriteContext } from "../Context/FavoriteContext";
+import FavoriteContext from "../Context/FavoriteContext";
 
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
@@ -37,8 +37,8 @@ const MovieCard = ({ movie }) => {
           onClick={handleClick}
           className="max-w-sm bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.12)]
                  overflow-hidden cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
-        >
-          <div className="relative h-56 w-full overflow-hidden">
+        > 
+          <div className="relative h-56 sm:h-60 md:h-64 w-full overflow-hidden">
             <img
               src={poster}
               alt={movie.Title}

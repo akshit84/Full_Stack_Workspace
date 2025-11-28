@@ -1,53 +1,54 @@
-// import axios from "axios";
 import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 
-const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, onReset }) => {
   const [searchText, setSearchText] = useState("");
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (onSearch) {
-      console.log(searchText);
-
       onSearch(searchText);
     }
   };
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div className="flex space-x-2">
-          <div className="flex items-center border border-slate-400  h-8 space-x-2 px-1 rounded-xl">
-            <div>
-              <GoSearch className="text-slate-400" />
-            </div>
-            <input
-              type="text"
-              value={searchText}
-              placeholder="Search Movie"
-              onChange={(e) => setSearchText(e.target.value)}
-              className="text-slate-400 border-0 outline-0 text-base w-2xl"
-            />
-          </div>
+  const handleReset = () => {
+    setSearchText("");
+    if (onReset) {
+      onReset();
+    }
+  };
 
+  return (
+    <form onSubmit={handleSubmit} className="w-full flex justify-center">
+      <div className="sm:flex sm:space-x-2">
+        <div className="flex items-center border border-slate-400 h-9 space-x-2 px-2 rounded-xl w-64 sm:w-80">
+          <GoSearch className="text-slate-400" />
+          <input
+            type="text"
+            value={searchText}
+            placeholder="Search Movie"
+            onChange={(e) => setSearchText(e.target.value)}
+            className="text-slate-700 border-0 outline-none text-base w-full"
+          />
+        </div>
+        <div className="flex justify-center space-x-1 mt-2 sm:mt-0 sm:space-x-2">
           <button
             type="submit"
-            className="bg-[#001A49] text-white px-2 rounded-2xl w-52"
+            className="bg-[#001A49] text-white px-4 rounded-2xl h-9 w-full sm:w-auto"
           >
             Search
           </button>
+
           <button
-            type="submit"
-            className="bg-[#001A49] text-white px-2 rounded-2xl w-52"
-            onClick={() => setSearchText("")}
+            type="button"
+            className="bg-red-500 text-white px-4 rounded-2xl h-9 w-full sm:w-fit"
+            onClick={handleReset}
           >
             Reset
           </button>
         </div>
-      </form>
-    </>
+      </div>
+    </form>
   );
 };
 
