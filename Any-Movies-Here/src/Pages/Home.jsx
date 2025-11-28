@@ -1,8 +1,8 @@
 
 import { useState } from "react";
 import axios from "axios";
-import MovieCard from "../components/MovieCard";
-import SearchBar from "../components/SearchBar";
+import MovieCard from "../../components/MovieCard";
+import SearchBar from "../../components/SearchBar";
 
 const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 

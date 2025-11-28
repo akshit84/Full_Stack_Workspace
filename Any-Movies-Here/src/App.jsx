@@ -1,17 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Routes from "./routes/Routes";
-import { FavoriteProvider } from "./Pages/Favorite/FavoriteProvider";
+import FavoriteContext, { FavoriteProvider } from "./Context/FavoriteContext";
+import { RegisterProvider } from "./Context/RegisterContext";
 
 function App() {
   const router = createBrowserRouter(Routes);
 
   return (
     <>
-      <FavoriteProvider>
-        <div>
-          <RouterProvider router={router} />
-        </div>
-      </FavoriteProvider>
+      <RegisterProvider>
+        <FavoriteProvider>
+          <div>
+            <RouterProvider router={router} />
+          </div>
+        </FavoriteProvider>
+      </RegisterProvider>
     </>
   );
 }

@@ -75,7 +75,7 @@ const MovieDetails = () => {
           <div className="bg-white/80 rounded-3xl shadow-xl p-6 sm:p-8 flex flex-col md:flex-row gap-8">
             {/* Poster + chips */}
             <div className="md:w-1/3">
-              <div className="w-full aspect-[2/3] overflow-hidden rounded-2xl shadow-lg bg-slate-200">
+              <div className="w-full aspect-2/3 overflow-hidden rounded-2xl shadow-lg bg-slate-200">
                 <img
                   src={
                     movie.Poster && movie.Poster !== "N/A"
