@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router";
-import { FiClock, FiEye } from "react-icons/fi";
 import { MdOutlineFavorite } from "react-icons/md";
 import FavoriteContext from "../Context/FavoriteContext";
 
@@ -10,7 +9,7 @@ const MovieCard = ({ movie }) => {
     useContext(FavoriteContext);
 
    const favorite = isFavorite(movie.imdbID);
-  console.log("favorite for",movie.imdbID, "=", favorite);
+  // console.log("favorite for",movie.imdbID, "=", favorite);
 
   const handleClick = () => {
     navigate(`/moviedetails/${movie.imdbID}`);

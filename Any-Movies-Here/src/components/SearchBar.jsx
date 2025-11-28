@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 
-const SearchBar = ({ onSearch, onReset }) => {
+// const SearchBar = ({ value, onChange, onReset }) => {
+const SearchBar = ({ onReset, onSearchClick }) => {
+// 
+// const SearchBar = ({ onSearch, onReset }) => {
   const [searchText, setSearchText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (onSearch) {
-      onSearch(searchText);
+    // if (onSearch) {
+    //   onSearch(searchText);
+    // }
+    if (onSearchClick) {
+      onSearchClick(searchText);
     }
   };
 
@@ -28,6 +34,7 @@ const SearchBar = ({ onSearch, onReset }) => {
             value={searchText}
             placeholder="Search Movie"
             onChange={(e) => setSearchText(e.target.value)}
+            //  onChange={(e) => onChange(e.target.value)}
             className="text-slate-700 border-0 outline-none text-base w-full"
           />
         </div>

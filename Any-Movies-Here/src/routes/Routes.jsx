@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoutesFromElements, Navigate, Route } from "react-router";
 import RootLayout from "../Layout/RootLayout";
-import Home from "../Pages/Home/Home";
+import Home from "../Pages/Home";
 import IMDB from "../Pages/IMDB";
 import NotFound from "../components/NotFound";
 import Favorite from "../Pages/Favorite/Favorite";

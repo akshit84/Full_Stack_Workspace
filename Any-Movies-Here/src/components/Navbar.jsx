@@ -10,8 +10,8 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 const Navbar = () => {
   const { user, setUser } = useContext(RegisterContext);
   const navigate = useNavigate();
-  console.log("from navbar");
-  console.log(user);
+  // console.log("from navbar");
+  // console.log(user);
 
   const handleLogOut = () => {
     localStorage.removeItem("registeredUser");

@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import axios from "axios";
-import MovieCard from "../../components/MovieCard";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../components/SearchBar";
+import MovieCard from "../components/MovieCard";
 
 const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
@@ -10,6 +9,16 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isThrottled, setIsThrotteld] = useState(false);
+
+  const handleThrottledSearchClick  = async (searchText) => {
+    if (isThrottled) return;
+
+    setIsThrotteld(true);
+    await handleSearch(searchText);
+
+    setTimeout(() => setIsThrotteld(false), 2000);
+  };
 
   const handleSearch = async (searchText) => {
     if (!searchText.trim()) {
@@ -25,6 +34,7 @@ const Home = () => {
       const res = await axios.get(
         `https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchText}`
       );
+      console.log(res);
 
       const data = res.data;
 
@@ -52,7 +62,7 @@ const Home = () => {
     <>
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-start mt-5 px-4 sm:px-6 lg:px-8 h-auto">
         <div className="my-5 w-full flex justify-center">
-          <SearchBar onSearch={handleSearch} onReset={handleReset} />
+          <SearchBar onSearch={handleSearch} onReset={handleReset} onSearchClick={handleThrottledSearchClick} />
         </div>
 
         <div className="mb-4 min-h-6">
