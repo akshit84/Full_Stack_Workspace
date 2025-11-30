@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import assets from "../assets/assets";
+// import assets from "../assets/assets";
 
 const ServiceCard = ({ service, index }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
