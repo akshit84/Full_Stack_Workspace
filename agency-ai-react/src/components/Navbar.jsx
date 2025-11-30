@@ -3,6 +3,7 @@ import assets from "../assets/assets";
 import { IoArrowForward } from "react-icons/io5";
 import { VscChromeClose } from "react-icons/vsc";
 import { CgMenuRight } from "react-icons/cg";
+import ThemeToggleBtn from "./ThemeToggleBtn";
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -50,6 +51,8 @@ const Navbar = ({ theme, setTheme }) => {
             }`}
             onClick={() => setSidebarOpen(true)}
           /> */}
+
+          <ThemeToggleBtn theme={theme} setTheme={setTheme} />
           <img
             src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
             alt=""
