@@ -11,7 +11,7 @@ import Register from "../components/Register";
 
 const Routes = createRoutesFromElements(
   <>
-    <Route path="/" element={<Navigate to="/signin" replace />} />
+    <Route path="/" element={<Navigate to="/register" replace />} />
 
     <Route path="register" element={<Register />} />
     <Route path="login" element={<LogIN />} />

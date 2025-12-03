@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* CENTER — NavLinks (always centered regardless of left side width) */}
           <div className="absolute left-1/2 -translate-x-1/2 flex items-center space-x-6 text-base sm:text-lg md:text-xl font-semibold">
             <NavLink
-              to="/"
+              to="/home"
               className={({ isActive }) =>
                 `border-0 outline-0 ${
                   isActive ? "text-[#E9327C]" : "text-slate-900"
