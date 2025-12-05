@@ -86,7 +86,7 @@ const updateBlog = async (req, res) => {
   }
 };
 
-const deleteBolg = async (req, res) => {
+const deleteBlog = async (req, res) => {
   try {
     const blogId = req.params.id;
     const userId = req.user._id;
@@ -127,20 +127,19 @@ const getBlogsByUser = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    const blogs = await BlogModel.find({ author: userId }).populate(
-      "author",
-      "fullname email role"
-    );
+    const blogs = await BlogModel.find({ author: userId })
+      .populate("author", "fullname email role")
+      .sort({ createdAt: -1 });
 
     return res.status(200).json({
       success: true,
       blogs,
     });
   } catch (err) {
-    console.log("Error getting blogs by user.", err);
+    console.log("Error Fetching blogs", err);
     return res.status(500).json({
       success: false,
-      message: "Server error while getting blogs for user",
+      message: "Internal server error.",
     });
   }
 };
@@ -149,6 +148,6 @@ module.exports = {
   createBlog,
   getAllUserBlog,
   updateBlog,
-  deleteBolg,
+  deleteBlog,
   getBlogsByUser,
 };

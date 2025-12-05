@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { getBlogsByUser } = require("../Controllers/BlogController");
 const {
   getAllUser,
   createUser,
@@ -8,6 +9,8 @@ const {
 const { authMiddleware, isAdmin } = require("../Middleware/auth");
 
 router.get("/allUsers", authMiddleware, isAdmin, getAllUser);
+
+router.get("/users/:userId/blogs", authMiddleware, isAdmin, getBlogsByUser);
 
 router.post("/createUser", authMiddleware, isAdmin, createUser);
 
