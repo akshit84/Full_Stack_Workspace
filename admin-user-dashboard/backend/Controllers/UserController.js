@@ -3,36 +3,62 @@ const bcrypt = require("bcryptjs");
 
 const getAllUser = async (req, res) => {
   try {
-    const users = await UserModel.find({}).select("-password");
-    res.status(200).json({ success: true, users });
+    const users = await UserModel.find({role : "user" })
+      .select("-password")
+      .sort({ createdAt: -1 });
+    res
+      .status(200)
+      .json({ success: true, message: "Users fetched successfully.", users });
   } catch (err) {
-    console.log(err);
+    console.error("Get all users error:", err);
     res.status(500).json({ success: false, message: "Server Error" });
   }
 };
 
 const createUser = async (req, res) => {
   try {
-    const { fullname, email, password, role } = req.body;
+    const { fullname, email, password, role } = req.body || {};
 
     // console.log(fullname, email, password, role);
 
-    const hashPassword = await bcrypt.hash(password, 10);
-    // console.log(hashPassword);
+    const errors = {};
+
+    if (!fullname || !fullname.trim()) {
+      errors.fullname = "Full name is required.";
+    }
+
+    if (!email || !email.trim()) {
+      errors.email = "Email is required.";
+    }
+
+    if (!password || !password.trim()) {
+      errors.password = "Password is required.";
+    }
+
+    // If any validation error → 400 Bad Request
+    if (Object.keys(errors).length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Validation error.",
+        errors,
+      });
+    }
 
     const user = await UserModel.findOne({ email });
     if (user) {
       return res.status(409).json({
-        message: "User is already exist, you can login",
+        message: "User is already exist.",
         success: false,
       });
     }
+
+    const hashPassword = await bcrypt.hash(password, 10);
+    // console.log(hashPassword);
 
     const userModel = new UserModel({
       fullname,
       email,
       password: hashPassword,
-      role,
     });
     await userModel.save();
 
@@ -40,14 +66,13 @@ const createUser = async (req, res) => {
       _id: userModel._id,
       fullname: userModel.fullname,
       email: userModel.email,
-      role: userModel.role,
     };
     res
       .status(201)
       .json({ message: "User Created", success: true, user: userData });
   } catch (error) {
     console.log("Signup error:- ", error);
-    res.status(500).json({ message: "interval server error", success: false });
+    res.status(500).json({ message: "Initial server error", success: false });
   }
 };
 
