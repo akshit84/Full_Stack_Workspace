@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
-  const [loggedInUser ] = useState(() => {
+  const [loggedInUser] = useState(() => {
     return localStorage.getItem("loggedInUser") || "";
   });
   const navigate = useNavigate();
@@ -31,7 +31,9 @@ const Home = () => {
               Logged in as:
             </p>
             <span className="inline-block mt-2 px-4 py-2 text-white   text-3xl font-medium">
-               <span className="bg-linear-to-bl from-[#2A00B7] to-[#42006C] bg-clip-text text-transparent">{loggedInUser}</span>
+              <span className="bg-linear-to-bl from-[#2A00B7] to-[#42006C] bg-clip-text text-transparent">
+                {loggedInUser}
+              </span>
             </span>
           </div>
 
@@ -42,10 +44,9 @@ const Home = () => {
           >
             Logout
           </button>
-
-          <ToastContainer />
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
