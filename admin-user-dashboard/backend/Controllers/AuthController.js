@@ -42,7 +42,7 @@ const login = async (req, res) => {
     const user = await UserModel.findOne({ email });
     // console.log(user);
 
-    const errMsg = "Auth failed: email or password is wrong.";
+    const errMsg = "Invalid email or password. Please try again.";
     if (!user) {
       return res.status(403).json({ message: errMsg, success: false });
     }
