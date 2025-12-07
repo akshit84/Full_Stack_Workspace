@@ -15,6 +15,8 @@ const CreateUserModal = ({ open, onClose, onUserCreated }) => {
   const [formError, setFormError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  if (!open) return null;
+
   const validate = () => {
     const newErrors = {};
 
@@ -44,7 +46,13 @@ const CreateUserModal = ({ open, onClose, onUserCreated }) => {
 
       const result = await createUserByAdmin(token, formData);
 
+      if (!result.success) {
+        setFormError(result.message || "Failed to create user.");
+        return;
+      }
+
       handleSuccess(result.message || "User created successfully.");
+      onUserCreated?.(result.user)
 
       setFormData({
         fullname: "",
@@ -52,9 +60,6 @@ const CreateUserModal = ({ open, onClose, onUserCreated }) => {
         password: "",
       });
 
-      if (onUserCreated) {
-        onUserCreated();
-      }
       // close modal
       onClose?.();
     } catch (err) {
@@ -64,7 +69,6 @@ const CreateUserModal = ({ open, onClose, onUserCreated }) => {
     }
   };
 
-  if (!open) return null; // don’t render when closed
 
   return (
     <div

@@ -20,8 +20,7 @@ const AdminDashboard = () => {
   const [showCreatedModal, setShowCreatedModal] = useState(false);
   const [showUpdatedModal, setShowUpdatedModal] = useState(false);
   const [showDeletedModal, setShowDeletedModal] = useState(false);
-
-  const [userRefreshKey, setUserRefreshKey] = useState(0);
+  // const [userRefreshKey, setUserRefreshKey] = useState(0);
 
   const [users, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +28,7 @@ const AdminDashboard = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedUserToDelete, setSelectedUserToDelete] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const fetchUser = async () => {
     try {
@@ -52,42 +51,78 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (!token) return;
     fetchUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token, userRefreshKey]);
+  }, [token]);
 
+  // useEffect(() => {
+  //   const user = users.find((user) => user?.id === updatedUserData.id);
+  //   console.log("<<<<<<<<>>>>>>>>>>>>>>>>",users)
+
+  //   setUser(prev => prev.map(u => (u._id === updatedUserData._id ? updatedUserData: u)))
+  //   // const updatedUser = setUser(prev => ([...prev , ]))
+
+  // },[updatedUserData])
+
+  // ───────────────────────────────────────────────────────────────────────────────────────
+  // CREATE USER
+  // ───────────────────────────────────────────────────────────────────────────────────────
   const handleOpenCreateUser = () => {
     if (user?.role === "admin") {
       setShowCreatedModal(true);
     }
   };
 
-  const handleUserCreated = () => {
-    setUserRefreshKey((prev) => prev + 1);
+  const handleUserCreated = (newUser) => {
+    // setUserRefreshKey((prev) => prev + 1);
+    if (!newUser) return;
+    setUser((prev) => [newUser, ...prev]);
   };
 
+  // ───────────────────────────────────────────────────────────────────────────────────────
+  // UPDATE USER
+  // ───────────────────────────────────────────────────────────────────────────────────────
   const handleOpenUpdateUser = (u) => {
+    // console.log("👉 handleOpenUpdateUser called with user:", u);
     setSelectedUser(u);
     setShowUpdatedModal(true);
   };
 
-  const handleUserUpdated = () => {
-    setUserRefreshKey((prev) => prev + 1);
+  const handleUserUpdated = (updatedUser) => {
+    // console.log("🧩 handleUserUpdated called with:", updatedUser);
+    // console.log(updatedUser);
+    // console.log("<<<<<<<<>>>>>>>>>>>>>>>>", users);
+
+    if (!updatedUser) return;
+    setUser((prev) => {
+      const newArr = prev.map((u) =>
+        u._id === updatedUser._id ? updatedUser : u
+      );
+      // console.log("🔁 New users array after update:", newArr);
+      return newArr;
+    });
   };
 
+  // ───────────────────────────────────────────────────────────────────────────────────────
+  // DELETE USER
+  // ───────────────────────────────────────────────────────────────────────────────────────
   const handleOpenDeleteUser = (u) => {
     if (user?.role !== "admin") return;
     setSelectedUserToDelete(u);
     setShowDeletedModal(true);
   };
 
-  const handleUserDeleted = () => {
-    setUserRefreshKey((prev) => prev + 1);
+  // receives deletedUserId from modal
+  const handleUserDeleted = (deletedUserId) => {
+    if (!deletedUserId) return;
+    setUser((prev) => prev.filter((u) => u._id !== deletedUserId));
   };
 
+  // ───────────────────────────────────────────────────────────────────────────────────────
+  // VIEW USER BLOGS
+  // ───────────────────────────────────────────────────────────────────────────────────────
   const handleViewUserBlogs = (userId) => {
     console.log("user id:- ", userId);
-    navigate(`/admin/userBlogs/${userId}`)
-  }
+    navigate(`/admin/userBlogs/${userId}`);
+  };
 
   return (
     <>

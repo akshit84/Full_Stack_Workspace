@@ -11,18 +11,20 @@ const UpdateUserModal = ({
 }) => {
   const { token } = useContext(AuthContext);
 
-  const [updatedUserData, setUpdatedUserData] = useState({
+  const [formData, setFormData] = useState({
     fullname: "",
     email: "",
+    role: "user",
   });
-
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    // console.log("🌀 useEffect in UpdateUserModal, selectedUser:", selectedUser);
+
     if (selectedUser) {
-      setUpdatedUserData({
+      setFormData({
         fullname: selectedUser.fullname || "",
         email: selectedUser.email || "",
       });
@@ -31,12 +33,14 @@ const UpdateUserModal = ({
     }
   }, [selectedUser]);
 
+  if (!open || !selectedUser) return null;
+
   const validate = () => {
     const newErrors = {};
 
-    if (!updatedUserData.fullname.trim())
+    if (!formData.fullname.trim())
       newErrors.fullname = "Full name is required.";
-    if (!updatedUserData.email.trim()) newErrors.email = "Email is required.";
+    if (!formData.email.trim()) newErrors.email = "Email is required.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -44,37 +48,46 @@ const UpdateUserModal = ({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUpdatedUserData((p) => ({ ...p, [name]: value }));
+    // console.log("⌨️ Changing field:", name, "to:", value);
+
+    setFormData((p) => ({ ...p, [name]: value }));
     setErrors((p) => ({ ...p, [name]: "" }));
     setFormError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!selectedUser) return;
 
+    // console.log("✅ Submitting update for user id:", selectedUser._id);
+    // console.log("📦 Form data being sent:", formData);
     if (!validate()) return;
 
     try {
       setLoading(true);
+      setFormError("");
 
-      const result = await updateUserByAdmin(
-        token,
-        selectedUser._id,
-        updatedUserData
-      );
+      const result = await updateUserByAdmin(token, selectedUser._id, formData);
+
+      // console.log("📥 Response from updateUserByAdmin:", result);
+
+      if (!result.success) {
+        setFormError(result.message || "Failed to update user.");
+        return;
+      }
+
+      // setUpdatedUserData(prev => ({...prev , fullname: result?.user?.fullname , email:result?.user?.email , id: result?.user?._id}))
 
       handleSuccess(result.message || "User updated successfully.");
-      onUserUpdated?.();
+      onUserUpdated?.(result.user);
       onClose?.();
     } catch (err) {
-      const message = err?.message || "Failed to update user.";
-      setFormError(message);
+      // const message = err?.message || "Failed to update user.";
+      setFormError(err.message || "Failed to update user.");
     } finally {
       setLoading(false);
     }
   };
-
-  if (!open) return null;
 
   return (
     <>
@@ -123,7 +136,7 @@ const UpdateUserModal = ({
                 </label>
                 <input
                   name="fullname"
-                  value={updatedUserData.fullname}
+                  value={formData.fullname}
                   onChange={handleChange}
                   className={`bg-neutral-secondary-medium border to-gray-900 text-sm rounded-[10px] block w-full px-3 py-2.5 shadow-xs placeholder:text-gray-500 outline-none focus:ring-2 ${
                     errors.fullname
@@ -144,7 +157,7 @@ const UpdateUserModal = ({
                 <input
                   type="email"
                   name="email"
-                  value={updatedUserData.email}
+                  value={formData.email}
                   onChange={handleChange}
                   className={`bg-neutral-secondary-medium border text-gray-900 text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-gray-500 outline-none focus:ring-2 rounded-[10px] ${
                     errors.email

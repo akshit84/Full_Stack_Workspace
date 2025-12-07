@@ -17,8 +17,13 @@ const DeleteUserModal = ({ open, onClose, user, onUserDeleted }) => {
 
       const res = await deleteUserByAdmin(token, user._id);
 
+      if (!res.success) {
+        setFormError(res.message || "Failed to delete user.");
+        return;
+      }
+
       handleSuccess(res.message || "User deleted successfully.");
-      onUserDeleted?.();
+      onUserDeleted?.(user._id);
       onClose?.();
     } catch (err) {
       const msg = err?.message || "Failed to delete user.";
