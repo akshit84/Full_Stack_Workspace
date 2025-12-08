@@ -32,36 +32,10 @@ const AdminUserBlogs = () => {
 
   useEffect(() => {
     fetchBlogs();
-  }, [userId]);
+  }, []);
 
   return (
     <>
-      {/* <div>
-        <h2 className="text-xl font-bold mb-4">Blogs by User</h2>
-
-        {loading ? (
-          <p>Loading...</p>
-        ) : blogs.length === 0 ? (
-          <p>No blogs found for this user.</p>
-        ) : (
-          <div className="space-y-4">
-            {blogs.map((blog) => (
-              <div
-                key={blog._id}
-                className="border p-4 bg-white rounded shadow"
-              >
-                <h3 className="font-bold text-lg">{blog.title}</h3>
-                <p className="text-gray-600 text-sm">
-                  {blog.createdAt
-                    ? new Date(blog.createdAt).toLocaleString()
-                    : ""}
-                </p>
-                <p className="mt-2">{blog.content}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div> */}
 
       <div className="space-y-4">
         {/* Header */}
